@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sputnik 400 Terra - Комплектация и характеристики</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+    :root {
+        --primary: #181818;
+        --primary-light: #2a2a2a;
+        --accent: #2a2a2a;
+        --accent-light: #5dade2;
+        --text: #2c3e50;
+        --text-light: #7f8c8d;
+        --background: #ffffff;
+        --background-alt: #f8f9fa;
+        --border: #e8e8e8;
+        --shadow: rgba(0, 0, 0, 0.05);
+        --shadow-hover: rgba(0, 0, 0, 0.1);
+        --success: #27ae60;
+        --radius: 12px;
+        --radius-sm: 8px;
+        --transition: all 0.3s ease;
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background: var(--background);
+        color: var(--text);
+        font-family: 'Inter', 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* Галерея */
+    .gallery-container {
+        margin: 40px auto;
+        background: var(--background);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: 0 5px 25px var(--shadow);
+    }
+
+    .main-image {
+        height: 500px;
+        background: var(--background-alt);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        border-radius: var(--radius) var(--radius) 0 0;
+        overflow: hidden;
+    }
+
+    .main-image img {
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: contain;
+        transition: var(--transition);
+    }
+
+    .image-nav {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+        pointer-events: none;
+    }
+
+    .nav-btn {
+        pointer-events: auto;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.9);
+        color: var(--primary);
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        /* Добавляем позиционирование по умолчанию для десктопа */
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .nav-btn.prev {
+        left: 20px; /* Отступ от левого края на десктопе */
+    }
+
+    .nav-btn.next {
+        right: 20px; /* Отступ от правого края на десктопе */
+    }
+
+    .nav-btn:hover {
+        background: var(--background);
+    }
+
+    .image-counter {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 14px;
+        backdrop-filter: blur(4px);
+    }
+
+    .thumbnails-container {
+        position: relative;
+        padding: 15px 40px;
+        background: var(--background);
+    }
+
+    .thumbnails {
+        display: flex;
+        gap: 10px;
+        padding: 5px 0;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .thumbnails::-webkit-scrollbar {
+        display: none;
+    }
+
+    .thumbnail {
+        flex: 0 0 80px;
+        height: 60px;
+        border: 2px solid transparent;
+        transition: var(--transition);
+        cursor: pointer;
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+        position: relative;
+    }
+
+    .thumbnail:hover {
+        border-color: var(--border);
+        transform: translateY(-2px);
+    }
+
+    .thumbnail.active {
+        border-color: var(--accent);
+    }
+
+    .thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .thumb-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 30px;
+        height: 60px;
+        background-color: var(--background);
+        color: var(--text);
+        border: 1px solid var(--border);
+        font-size: 14px;
+        cursor: pointer;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+        border-radius: var(--radius-sm);
+        box-shadow: 0 2px 8px var(--shadow);
+    }
+
+    .thumb-nav:hover {
+        background-color: var(--accent);
+        color: white;
+        border-color: var(--accent);
+    }
+
+    .thumb-nav.prev {
+        left: 5px;
+    }
+
+    .thumb-nav.next {
+        right: 5px;
+    }
+
+    .error-placeholder {
+        background: var(--background-alt);
+        color: #d32f2f;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 10px;
+        border-radius: var(--radius-sm);
+    }
+
+    /* Контентные блоки */
+    .content-block {
+        background: var(--background);
+        border-radius: var(--radius);
+        margin-bottom: 30px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px var(--shadow);
+        transition: var(--transition);
+    }
+
+    .content-block:hover {
+        box-shadow: 0 8px 25px var(--shadow-hover);
+    }
+
+    .block-header {
+        background: var(--primary);
+        color: white;
+        padding: 25px 30px;
+    }
+
+    .block-header h1 {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    .block-header p {
+        opacity: 0.85;
+        font-size: 16px;
+    }
+
+    .block-content {
+        padding: 30px;
+    }
+
+    .intro-text {
+        margin-bottom: 20px;
+        font-size: 17px;
+        line-height: 1.7;
+    }
+
+    .intro-text p {
+        margin-bottom: 15px;
+    }
+
+    .section-title {
+        font-size: 20px;
+        font-weight: 600;
+        margin: 25px 0 15px;
+        color: var(--primary);
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .highlight {
+        background: linear-gradient(to right, #f8f9fa, #f1f3f5);
+        padding: 20px;
+        border-radius: var(--radius-sm);
+        margin: 25px 0;
+        border-left: 4px solid var(--accent);
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    /* Списки */
+    .features-list {
+        list-style: none;
+    }
+
+    .features-list li {
+        padding: 15px 20px;
+        margin: 10px 0;
+        background-color: var(--background-alt);
+        border-left: 3px solid var(--border);
+        border-radius: var(--radius-sm);
+        font-size: 16px;
+        line-height: 1.5;
+        transition: var(--transition);
+    }
+
+    /* Категории */
+    .category {
+        margin-bottom: 30px;
+    }
+
+    .category-header {
+        background-color: var(--primary-light);
+        color: white;
+        padding: 15px 20px;
+        border-radius: var(--radius-sm);
+        margin-bottom: 15px;
+        font-weight: 600;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+    }
+
+    .category-header i {
+        margin-right: 10px;
+    }
+
+    /* Цена */
+    .pricing {
+        text-align: center;
+        padding: 12px 16px !important;
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+        color: white;
+        border-radius: var(--radius);
+        max-width: 480px;
+        margin: 20px auto;
+        line-height: 1.3;
+    }
+
+    .pricing h2 {
+        font-size: 18px !important;
+        margin: 8px 0 6px 0 !important;
+        font-weight: 600;
+        color: white;
+        line-height: 1.2;
+    }
+
+    .price-item {
+        margin: 15px 0;
+    }
+
+    .price-description {
+        font-size: 13px !important;
+        margin: 0 0 4px 0 !important;
+        opacity: 0.85;
+        color: white;
+        line-height: 1.3;
+    }
+
+    .price-value {
+        font-size: 22px !important;
+        font-weight: 700;
+        margin: 0 !important;
+        color: white;
+        line-height: 1.1;
+    }
+
+    /* Бейдж */
+    .badge {
+        display: inline-block;
+        background: #4a1611;
+        color: white;
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+        margin-left: 10px;
+        font-weight: 600;
+        vertical-align: middle;
+    }
+
+    /* Вложенный список */
+    .nested-list {
+        list-style: none;
+        margin-top: 10px;
+        padding-left: 20px;
+    }
+
+    .nested-list li {
+        padding: 8px 0;
+        border: none;
+        background-color: transparent;
+        font-size: 15px;
+        position: relative;
+    }
+
+    .nested-list li:before {
+        content: "•";
+        color: var(--accent);
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+    }
+
+    /* Адаптивность */
+    @media (max-width: 992px) {
+        .main-image {
+            height: 400px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            padding: 0 15px;
+        }
+        
+        .gallery-container {
+            margin: 25px auto;
+        }
+        
+        .main-image {
+            height: 450px;
+        }
+        
+        .nav-btn {
+            width: 45px;
+            height: 45px;
+        }
+        
+        .nav-btn.prev {
+            left: 15px; /* Сдвигаем ближе к краю на планшетах */
+        }
+        
+        .nav-btn.next {
+            right: 15px; /* Сдвигаем ближе к краю на планшетах */
+        }
+        
+        .thumbnails-container {
+            padding: 15px 35px;
+        }
+        
+        .thumbnail {
+            flex: 0 0 70px;
+            height: 50px;
+        }
+        
+        .block-header, .block-content {
+            padding: 20px;
+        }
+        
+        .block-header h1 {
+            font-size: 22px;
+        }
+        
+        .section-title {
+            font-size: 19px;
+        }
+        
+        .price-value {
+            font-size: 28px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .main-image {
+        height: 70vh; /* 70% высоты экрана */
+        min-height: 400px; /* Но не меньше 350px */
+        }
+        
+        .nav-btn {
+            width: 40px;
+            height: 40px;
+            font-size: 16px;
+        }
+        
+        .nav-btn.prev {
+            left: 8px; /* Еще ближе к краю на телефонах */
+        }
+        
+        .nav-btn.next {
+            right: 8px; /* Еще ближе к краю на телефонах */
+        }
+        
+        .thumbnails-container {
+            padding: 10px 30px;
+        }
+        
+        .thumbnail {
+            flex: 0 0 60px;
+            height: 45px;
+        }
+        
+        .thumb-nav {
+            width: 25px;
+            height: 50px;
+            font-size: 12px;
+        }
+        
+        .block-header {
+            padding: 20px 15px;
+        }
+        
+        .block-header h1 {
+            font-size: 20px;
+        }
+        
+        .block-content {
+            padding: 20px 15px;
+        }
+        
+        .features-list li {
+            padding: 12px 15px;
+            font-size: 15px;
+        }
+        
+        .category-header {
+            padding: 12px 15px;
+            font-size: 16px;
+        }
+        
+        .price-value {
+            font-size: 24px;
+        }
+        
+        .highlight {
+            padding: 15px;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .main-image {
+        height: 75vh; /* Ещё больше на очень маленьких экранах */
+        min-height: 320px;
+        }
+        
+        .nav-btn.prev {
+            left: 3px; /* Почти у самого края на маленьких экранах */
+        }
+        
+        .nav-btn.next {
+            right: 3px; /* Почти у самого края на маленьких экранах */
+        }
+        
+        .image-counter {
+            bottom: 15px;
+            right: 15px;
+            font-size: 12px;
+        }
+        
+        .thumbnail {
+            flex: 0 0 50px;
+            height: 40px;
+        }
+    }
+
+    /* Утилиты */
+    .long-text {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .mt-20 {
+        margin-top: 20px;
+    }
+
+    .mb-20 {
+        margin-bottom: 20px;
+    }
+
+    /* Анимации */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    .fade-in {
+        animation: fadeIn 0.5s ease forwards;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <!-- Галерея -->
+<div class="gallery-container fade-in">
+    <div class="main-image">
+        <img src="https://iili.io/K3FzRMx.jpg" alt="Основное изображение" onerror="handleImageError(this)" loading="lazy">
+        <div class="image-nav">
+            <button class="nav-btn prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="nav-btn next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="image-counter">1/24</div>
+    </div>
+    <div class="thumbnails-container">
+        <button class="thumb-nav prev"><i class="fas fa-chevron-left"></i></button>
+        <div class="thumbnails">
+            <div class="thumbnail active">
+                <img src="https://iili.io/K3FzRMx.jpg" alt="Миниатюра 0" onerror="handleThumbError(this)" loading="lazy">
+            </div>
+            <div class="thumbnail">
+                <img src="https://iili.io/K3Fz56Q.jpg" alt="Миниатюра 1" onerror="handleThumbError(this)" loading="lazy">
+            </div>
+            <div class="thumbnail">
+                <img src="https://iili.io/K3FzYFV.jpg" alt="Миниатюра 2" onerror="handleThumbError(this)" loading="lazy">
+            </div>
+            <div class="thumbnail">
+                <img src="https://iili.io/K3FzAnj.jpg" alt="Миниатюра 3" onerror="handleThumbError(this)" loading="lazy">
+            </div>
+            <div class="thumbnail">
+                <img src="https://iili.io/K3FzTZb.jpg" alt="Миниатюра 4" onerror="handleThumbError(this)" loading="lazy">
+            </div>
+            <div class="thumbnail">
+                <img src="https://iili.io/K3FzacB.jpg" alt="Миниатюра 5" onerror="handleThumbError(this)" loading="lazy">
+            </div>
+            <div class="thumbnail">
+                <img src="https://iili.io/K3Fzc8P.jpg" alt="Миниатюра 6" onerror="handleThumbError(this)" loading="lazy">
+            </div>
+            <div class="thumbnail">
+                <img src="https://iili.io/K3Fz1AF.jpg" alt="Миниатюра 7" onerror="handleThumbError(this)" loading="lazy">
+            </div>
+            <div class="thumbnail">
+                <img src="https://iili.io/K3FzEwg.jpg" alt="Миниатюра 8" onerror="handleThumbError(this)" loading="lazy">
+            </div>
+            <div class="thumbnail">
+                <img src="https://iili.io/K3FzGta.jpg" alt="Миниатюра 9" onerror="handleThumbError(this)" loading="lazy">
+            </div>
+            <div class="thumbnail">
+                <img src="https://iili.io/K3FzWMv.jpg" alt="Миниатюра 10" onerror="handleThumbError(this)" loading="lazy">
+            </div>
+            <div class="thumbnail">
+                <img src="https://iili.io/K3FzXPR.jpg" alt="Миниатюра 11" onerror="handleThumbError(this)" loading="lazy">
+            </div>
+            <div class="thumbnail">
+                <img src="https://iili.io/K3Fze9t.jpg" alt="Миниатюра 12" onerror="handleThumbError(this)" loading="lazy">
+            </div>
+            <div class="thumbnail">
+                <img src="https://iili.io/K3FzkAX.jpg" alt="Миниатюра 13" onerror="handleThumbError(this)" loading="lazy">
+            </div>
+            <div class="thumbnail">
+                <img src="https://iili.io/K3FzUoG.jpg" alt="Миниатюра 14" onerror="handleThumbError(this)" loading="lazy">
+            </div>
+            <div class="thumbnail">
+                <img src="https://iili.io/K3FzgVf.jpg" alt="Миниатюра 15" onerror="handleThumbError(this)" loading="lazy">
+            </div>
+            <div class="thumbnail">
+                <img src="https://iili.io/K3Fz6Kl.jpg" alt="Миниатюра 16" onerror="handleThumbError(this)" loading="lazy">
+            </div>
+            <div class="thumbnail">
+                <img src="https://iili.io/K3FzPl2.jpg" alt="Миниатюра 17" onerror="handleThumbError(this)" loading="lazy">
+            </div>
+            <div class="thumbnail">
+                <img src="https://iili.io/K3FziSS.jpg" alt="Миниатюра 18" onerror="handleThumbError(this)" loading="lazy">
+            </div>
+            <div class="thumbnail">
+                <img src="https://iili.io/K3FzLH7.jpg" alt="Миниатюра 19" onerror="handleThumbError(this)" loading="lazy">
+            </div>
+            <div class="thumbnail">
+                <img src="https://iili.io/K3FzQR9.jpg" alt="Миниатюра 20" onerror="handleThumbError(this)" loading="lazy">
+            </div>
+            <div class="thumbnail">
+                <img src="https://iili.io/K3FzZNe.jpg" alt="Миниатюра 21" onerror="handleThumbError(this)" loading="lazy">
+            </div>
+            <div class="thumbnail">
+                <img src="https://iili.io/K3FzmVj.jpg" alt="Миниатюра 22" onerror="handleThumbError(this)" loading="lazy">
+            </div>
+            <div class="thumbnail">
+                <img src="https://iili.io/K3FI9KQ.jpg" alt="Миниатюра 23" onerror="handleThumbError(this)" loading="lazy">
+            </div>
+        </div>
+        <button class="thumb-nav next"><i class="fas fa-chevron-right"></i></button>
+    </div>
+</div>
+        <!-- Введение -->
+        <div class="content-block fade-in">
+            <div class="block-header">
+                <h1>Sputnik 400 Terra</h1>
+                <p>Размеры: 5500×2550×2030 мм (внешние) / 3950×1870×1970 мм (внутренние)</p>
+            </div>
+            <div class="block-content">
+                <div class="intro-text">
+                    <p><strong>Sputnik 400 Terra</strong> — «Надёжность, которая не подведёт»</p>
+                    <p>Каждое путешествие — это стихия. Ветер в лицо, дорога под колёсами, пламя костра и отражение озёр в окне. Прицепы-караваны Sputnik объединили в себе силу четырёх элементов, чтобы стать идеальным спутником в любом уголке мира.</p>
+                    <div class="section-title">Комфорт, который согревает в любую погоду</div>
+                    <p>Продуманная эргономика и обновлённая мебель в скандинавских тонах из качественных материалов. Тепло домашнего уюта даже вдали от цивилизации.</p>
+                    <div class="section-title">Проходимость, адаптированная под любые дороги</div>
+                    <p>Усиленная рама, независимая подвеска и устойчивость даже в сложных условиях. Как скала, которая выдержит любой маршрут.</p>
+                    <div class="section-title">Современные инженерные решения</div>
+                    <p>Улучшенные коммуникации и электрика, работающие без нареканий. Лёгкость управления, как течение реки.</p>
+                    <div class="section-title">Мобильность и практичность</div>
+                    <p>Оптимальный вес и баланс для транспортировки. Манёвренность, которая превращает дорогу в удовольствие.</p>
+                    <div class="highlight">
+                        Sputnik 400 Terra — Ваш спутник по жизни, созданный природой и технологиями.
+                    </div>
+                    <p>Проверенная надёжность. Более 150-ти довольных путешественников — лучшая рекомендация.</p>
+                    <p>Отправьтесь в путь с тем, кто выдержит любую стихию!</p>
+                </div>
+            </div>
+        </div>
+        <!-- Комплектация -->
+        <div class="content-block fade-in">
+            <div class="block-header">
+                <h1>Полная комплектация</h1>
+            </div>
+            <div class="block-content">
+                <div class="category">
+                    <div class="category-header"><i class="fas fa-bed"></i> Спальные места и мебель</div>
+                    <ul class="features-list">
+                        <li class="long-text">4 спальных места. Размеры кроватей: 1930×1350 мм (разобранное состояние), 1930×700 мм (разобранное состояние), 1970×700 мм (второй ярус)</li>
+                        <li>2 стола-трансформера</li>
+                        <li>Шкаф для одежды</li>
+                        <li>Антресоль кухонная</li>
+                        <li>Мягкая мебель</li>
+                        <li>Фиксирующие замки и ограничители на фасадах</li>
+                        <li>Карнизы + шторы на окнах</li>
+                        <li>Сетка ограничительная на кровати</li>
+                        <li>Ковры в салоне</li>
+                    </ul>
+                </div>
+                <div class="category">
+                    <div class="category-header"><i class="fas fa-utensils"></i> Кухонное оборудование</div>
+                    <ul class="features-list">
+                        <li>Варочная панель на 2 конфорки + газовый баллон</li>
+                        <li>Мойка кухонная + кран (гор./хол. вода)</li>
+                        <li>Холодильник с морозильной камерой 90 л (12В)</li>
+                        <li>Вентилятор охлаждения холодильника</li>
+                        <li>Газовая розетка для гриля с адаптером</li>
+                    </ul>
+                </div>
+                <div class="category">
+                    <div class="category-header"><i class="fas fa-shower"></i> Санузел и водоснабжение</div>
+                    <ul class="features-list">
+                        <li>Туалет кассетный с сервисом люком</li>
+                        <li>Туалетная комната с душевым поддоном</li>
+                        <li>Душевой комплект со смесителем</li>
+                        <li>Грибок вентиляционный в туалетной комнате</li>
+                        <li>Штора в туалетной комнате</li>
+                        <li>Светильник в туалетной комнате</li>
+                        <li>Бак 75 л с внешной заливной горловиной</li>
+                        <li>Внешнее подключение воды + насос</li>
+                        <li>Внешний душ (гор./хол. вода)</li>
+                        <li>Погружной насос 12В</li>
+                        <li>Бойлер горячей воды 6 л (220В/12В) с выносным дисплеем</li>
+                        <li>Датчик уровня воды в баке</li>
+                    </ul>
+                </div>
+                <div class="category">
+                    <div class="category-header"><i class="fas fa-bolt"></i> Электрооборудование и освещение</div>
+                    <ul class="features-list">
+                        <li>Блок питания 220В→12В (600Вт)</li>
+                        <li>АКБ тяговый 100Ач</li>
+                        <li>Зарядный блок для АКБ (14А)</li>
+                        <li>Солнечная панель 300Вт (2×150Вт) + контроллер заряда</li>
+                        <li>Инвертор 12→220В 2000Вт (чистый синус)</li>
+                        <li class="long-text">Система автоматического переключения 220В (внешний порт-инвертор) все розетки</li>
+                        <li>Вводная розетка 220В</li>
+                        <li>Зарядка от автомобиля - коммутатор DC/DC 20a</li>
+                        <li>5 розеток 220В</li>
+                        <li>3 USB-разъема</li>
+                        <li>3 разъема прикуривателя 12В</li>
+                        <li>Вольтметр</li>
+                        <li>5 светодиодных светильников (профильные)</li>
+                        <li>4 поворотных светильника с USB</li>
+                        <li>Фонарь над входом</li>
+                        <li>Подсветка нижняя рундуков</li>
+                        <li>Ручка входная с подсветкой</li>
+                    </ul>
+                </div>
+                <div class="category">
+                    <div class="category-header"><i class="fas fa-wind"></i> Вентиляция и климат</div>
+                    <ul class="features-list">
+                        <li>Люк 40×40 (12В) с вентилятором и пультом управления</li>
+                        <li>Люк 40×40 вентиляционный с подсветкой</li>
+                        <li>Комплект воздуховодов с поворотным дефлектором</li>
+                        <li>Внутренняя вентиляция по периметру прицепа</li>
+                        <li>Вентиляция шкафа и антресолей</li>
+                        <li>Обогреватель 5 кВт (дизельный) с электронным дисплеем</li>
+                    </ul>
+                </div>
+                <div class="category">
+                    <div class="category-header"><i class="fas fa-shield-alt"></i> Внешнее оборудование и безопасность</div>
+                    <ul class="features-list">
+                        <li>Маркиза механическая (3 м вылет, 2.5 м)</li>
+                        <li>Столик откидной уличный</li>
+                        <li>Розетка внешняя (220В/12В/USB)</li>
+                        <li>Разъем электрический прицепа (13-pin + адаптер 7-pin)</li>
+                        <li>Антивандальный замок входной двери</li>
+                        <li>Ступень входная (12В, 200 кг)</li>
+                        <li>4 опорных домкрата AL-KO Off Road</li>
+                        <li>Опорное колесо KNOTT с усиленным кронштейном</li>
+                    </ul>
+                </div>
+                <div class="category">
+                    <div class="category-header"><i class="fas fa-cogs"></i> Трансмиссия и ходовая часть</div>
+                    <ul class="features-list">
+                        <li>Подвеска независимая (рычажная) с амортизаторами</li>
+                        <li>Рама усиленная</li>
+                        <li>Тормозные барабаны KNOTT</li>
+                        <li>Тормоз наката KNOTT - усиленный</li>
+                        <li>3 колеса на штампованных дисках 205/70/R15C - усиленные</li>
+                        <li>Рейлинги с кронштейном запасного колеса</li>
+                        <li>Дизель-бак (ящик для хранения) на дышле</li>
+                    </ul>
+                </div>
+                <div class="category">
+                    <div class="category-header"><i class="fas fa-lightbulb"></i> Световые приборы и сигнализация</div>
+                    <ul class="features-list">
+                        <li>Светодиодная оптика</li>
+                        <li>Фонарь заднего хода + противотуманный</li>
+                        <li>Габаритные огни по бортам (желтые)</li>
+                    </ul>
+                </div>
+                <div class="category">
+                    <div class="category-header"><i class="fas fa-plus-circle"></i> Дополнительные аксессуары</div>
+                    <ul class="features-list">
+                        <li>Багажные сетки (7 шт.)</li>
+                        <li>Пластиковые обвесы</li>
+                        <li>Москитная сетка на входной двери</li>
+                        <li>
+                            5 окон с москитными сетками и шторками:
+                            <ul class="nested-list">
+                                <li>3 в салоне</li>
+                                <li>1 в туалетной комнате</li>
+                                <li>1 в передней части прицепа</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Цена -->
+        <div class="pricing fade-in">
+            <div class="price-item">
+                <div class="price-description">Стоимость прицепа на заказ от</div>
+                <div class="price-value">2 000 000 ₽</div>
+            </div>
+            <div class="price-item">
+                <div class="price-description">Стоимость прицепа в данной комплектации</div>
+                <div class="price-value">2 490 000 ₽</div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        function handleImageError(img) {
+            console.error('Ошибка загрузки основного изображения:', img.src);
+            const $img = $(img);
+            const $container = $img.closest('.main-image');
+            $img.hide();
+            if (!$container.find('.error-placeholder').length) {
+                $container.append('<div class="error-placeholder">Обновите загрузку изображения</div>');
+            }
+            setTimeout(function() {
+                checkImageAvailability(img.src, function(isAvailable) {
+                    if (isAvailable) {
+                        $container.find('.error-placeholder').remove();
+                        $img.attr('src', img.src + '?retry=' + Date.now()).show();
+                    }
+                });
+            }, 2000);
+        }
+        function handleThumbError(img) {
+            console.error('Ошибка загрузки миниатюры:', img.src);
+            const $img = $(img);
+            const $container = $img.closest('.thumbnail');
+            $img.hide();
+            if (!$container.find('.error-placeholder').length) {
+                $container.append('<div class="error-placeholder">Ошибка</div>');
+            }
+            $container.addClass('broken-thumb');
+            setTimeout(function() {
+                checkImageAvailability(img.src, function(isAvailable) {
+                    if (isAvailable) {
+                        $container.find('.error-placeholder').remove();
+                        $container.removeClass('broken-thumb');
+                        $img.attr('src', img.src + '?retry=' + Date.now()).show();
+                    }
+                });
+            }, 1500);
+        }
+        function checkImageAvailability(url, callback) {
+            const img = new Image();
+            img.onload = function() {
+                callback(true);
+            };
+            img.onerror = function() {
+                callback(false);
+            };
+            img.src = url;
+        }
+        $(document).ready(function() {
+            const totalSlides = $('.thumbnail').length;
+            let currentIndex = 1;
+            function updateCounter() {
+                $('.image-counter').text(`${currentIndex}/${totalSlides}`);
+            }
+            function initSlider() {
+                const $firstItem = $('.thumbnail').first();
+                const firstImage = $firstItem.find('img').attr('src');
+                $firstItem.addClass('active');
+                $('.main-image img').attr('src', firstImage);
+                updateCounter();
+            }
+            $('.thumbnail').on('click', function(e) {
+                e.preventDefault();
+                const $this = $(this);
+                if ($this.hasClass('broken-thumb')) {
+                    return;
+                }
+                const $wrap = $this.closest('.gallery-container');
+                const $gap = $wrap.find('.main-image');
+                const imageUrl = $this.find('img').attr('src');
+                const animationDuration = 300;
+                if (!$this.hasClass('active')) {
+                    currentIndex = $this.index() + 1;
+                    updateCounter();
+                    $('.thumbnail').removeClass('active');
+                    $this.addClass('active');
+                    $gap.find('img').fadeOut(animationDuration, function() {
+                        $(this).attr('src', imageUrl).fadeIn(animationDuration);
+                    });
+                    const container = $('.thumbnails');
+                    const containerScroll = container.scrollLeft();
+                    const thumbPos = $this.position().left;
+                    const newScroll = containerScroll + thumbPos - 100;
+                    container.animate({scrollLeft: newScroll}, 300);
+                }
+            });
+            $('.nav-btn.prev').on('click', function() {
+                const $active = $('.thumbnail.active');
+                let $prev = $active.prev('.thumbnail');
+                while ($prev.length && $prev.hasClass('broken-thumb')) {
+                    $prev = $prev.prev('.thumbnail');
+                }
+                if ($prev.length) {
+                    $prev.trigger('click');
+                } else {
+                    let $last = $('.thumbnail').last();
+                    while ($last.length && $last.hasClass('broken-thumb')) {
+                        $last = $last.prev('.thumbnail');
+                    }
+                    if ($last.length) {
+                        $last.trigger('click');
+                    }
+                }
+            });
+            $('.nav-btn.next').on('click', function() {
+                const $active = $('.thumbnail.active');
+                let $next = $active.next('.thumbnail');
+                while ($next.length && $next.hasClass('broken-thumb')) {
+                    $next = $next.next('.thumbnail');
+                }
+                if ($next.length) {
+                    $next.trigger('click');
+                } else {
+                    let $first = $('.thumbnail').first();
+                    while ($first.length && $first.hasClass('broken-thumb')) {
+                        $first = $first.next('.thumbnail');
+                    }
+                    if ($first.length) {
+                        $first.trigger('click');
+                    }
+                }
+            });
+            $('.thumb-nav.prev').on('click', function() {
+                const container = $('.thumbnails');
+                container.animate({scrollLeft: container.scrollLeft() - 200}, 300);
+            });
+            $('.thumb-nav.next').on('click', function() {
+                const container = $('.thumbnails');
+                container.animate({scrollLeft: container.scrollLeft() + 200}, 300);
+            });
+            initSlider();
+            // Плавное появление элементов при скролле
+            $(window).on('scroll', function() {
+                $('.fade-in').each(function() {
+                    const elementTop = $(this).offset().top;
+                    const elementBottom = elementTop + $(this).outerHeight();
+                    const viewportTop = $(window).scrollTop();
+                    const viewportBottom = viewportTop + $(window).height();
+                    if (elementBottom > viewportTop && elementTop < viewportBottom) {
+                        $(this).css('opacity', '1');
+                    }
+                });
+            });
+            // Инициализация прозрачности для анимации появления
+            $('.fade-in').css('opacity', '0');
+            $(window).trigger('scroll');
+        });
+    </script>
+</body>
+</html>
